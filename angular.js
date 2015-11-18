@@ -12095,6 +12095,10 @@ function $LocationProvider() {
         html5Mode.rewriteLinks = mode.rewriteLinks;
       }
 
+      if(mode.baseHref) {
+        html5Mode.baseHref = mode.baseHref;
+      }
+
       return this;
     } else {
       return html5Mode;
@@ -12147,6 +12151,10 @@ function $LocationProvider() {
         baseHref = $browser.baseHref(), // if base[href] is undefined, it defaults to ''
         initialUrl = $browser.url(),
         appBase;
+
+    if(html5Mode.baseHref) {
+      baseHref = html5Mode.baseHref;
+    }
 
     if (html5Mode.enabled) {
       if (!baseHref && html5Mode.requireBase) {
